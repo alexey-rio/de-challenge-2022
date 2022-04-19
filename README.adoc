@@ -9,7 +9,7 @@ NOTE: This document sets requirements and provides general guidance. It doesn't 
 
 === This challenge includes a dataset that sets the foundation for the test.
 Dataset itself is named "Fraud.csv" and stored in git-lfs.
-link:de-challenge-2022/Fraud.csv[Fraud Dataset]
+link:Fraud.csv[Fraud Dataset]
 
 .The idea is to use it to demonstrate your skills in:
 1. Building ETL pipelines

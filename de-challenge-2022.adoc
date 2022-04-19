@@ -1,0 +1,53 @@
+= Technical challenge for data engineering skills assessment
+:hardbreaks-option:
+Alexey Molodchikov <alexey.molodchikov@riotinto.com>
+v1.0, April 2022
+:url-repo: https://github.com/rio-tinto/pace-bok
+
+NOTE: This document sets requirements and provides general guidance. It doesn't have to be treated as a strict set of rules. Initiative and creativity is embraced in our team :)
+
+
+=== This challenge includes a dataset that sets the foundation for the test.
+Dataset itself is named "Fraud.csv" and stored in git-lfs.
+link:Fraud.csv[Fraud Dataset]
+
+.The idea is to use it to demonstrate your skills in:
+1. Building ETL pipelines
+2. Data wrangling
+3. Software Engineering
+4. Cloud Engineering
+5. Whatever else you want to showcase (there is no limit to how far you can take it)
+
+==== About Dataset
+. Dataset properties
+* 6362621 records
+* csv format
+* File size ~ 500MB
+. Field descriptions
+* *step* - maps a unit of time in the real world. In this case 1 step is 1 hour of time. Total steps 744 (30 days simulation).
+* *type* - CASH-IN, CASH-OUT, DEBIT, PAYMENT and TRANSFER.
+* *amount* - amount of the transaction in local currency.
+* *nameOrig* - customer who started the transaction
+* *oldbalanceOrg* - initial balance before the transaction
+* *newbalanceOrig* - new balance after the transaction
+* *nameDest* - customer who is the recipient of the transaction
+* *oldbalanceDest* - initial balance recipient before the transaction. Note that there is not information for customers that start with M (Merchants).
+* *newbalanceDest* - new balance recipient after the transaction. Note that there is no information for customers that start with M (Merchants).
+* *isFraud* - These are the transactions made by the fraudulent agents inside the simulation. In this specific dataset the fraudulent behavior of the agents aims to profit by taking control of customers' accounts and try to empty the funds by transferring to another account and then cashing out of the system.
+* *isFlaggedFraud* - The business model aims to control massive transfers from one account to another and flags illegal attempts. An illegal attempt in this dataset is an attempt to transfer more than 200,000 in a single transaction.
+
+=== Finally, The assignment
+
+. Build a Data Processing pipeline that takes supplied dataset from point "A", preprocesses and puts it into point "B". It's up to you what that point A and point B is. Also it's up to you if you ETL or ELT. As part of preprocessing the data:
+* Count how many fraudulent transactions this dataset contains
+* Count how many unique customers this dataset contains
+* Create 1 day aggregates for for each customer (include step, oldbalanceOrg, oldbalanceOrig)
+NOTE: You are not limited or restricted by the steps above. You can choose to either take it further or take a different approach. We just want to see your skills working with the data.
+. Automate your data pipeline if you can/have time 
+. Create a small app that would display the result of your data analysis.
+. Make your solution easily repeatable (Docker compose/Terraform/Cloudformation or any other tool of your choice)
+. Think about how you going to present the design to us
+
+==== P.S.
+If you have a better idea as to how you can showcase your skills or if you have something prepared - feel free to use it. We respect your time and don't want you to spend your precious evenings/weekends working on this. 
+Just think about what can help us understand how you work and what your strong sides are.
